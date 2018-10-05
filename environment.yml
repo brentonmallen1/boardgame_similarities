@@ -1,0 +1,10 @@
+name: bgg-similarity
+dependencies:
+- jupyter
+- pip
+- python=3.6
+- pip:
+  - datasketch
+  - boardgamegeek2
+  - zappa
+  - flask

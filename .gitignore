@@ -1,0 +1,9 @@
+bgg-sim-env/
+*.pkl
+*.gz
+*.bak
+*.zip
+*.pid
+__pycache__/
+.DS_Store
+.idea/

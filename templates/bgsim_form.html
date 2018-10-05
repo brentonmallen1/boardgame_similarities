@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta author="Brenton Mallen ©2018">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type='text/javascript' src="static/js/script.js"></script>
+    <title>Objective Boardgame Similarity</title>
+</head>
+<body>
+    <h1>Objective Boardgame Similarity</h1>
+
+    <!-- FORM FOR BGG ID NUMBER INPUT -->
+    <div class="container">
+        <div class="form">
+            <form action="/dev/bg_similarity" method="POST"
+                  enctype="multipart/form-data">
+                <br>
+                <strong>Input BoardGameGeek game ID:</strong>
+                <br>
+                (BGG Item ID: 174430)
+                <br>
+                <!-- <a href="url">link text</a> -->
+                <input id="bgg_id" type="text" name="bgg_id" size="32"
+                       value="174430"
+                       onkeyup="check_input(this.value)"/>
+                <br>
+                <br>
+                <strong>Number of Similar Games:</strong>
+                <select name="top_n">
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <br>
+                <br>
+                <input id="submit" type="submit" name="submit"
+                        style="height:30px;width:125px"/>
+                <br>
+                <br>
+                Similar Games:
+                <pre class="similar_games"></pre>
+            </form>
+        </div>
+        <br>
+            Examples:
+            <ul>
+                <li>Gloomhaven (ID: 174430)</li>
+                <li>Agricola (Revised Ed.) (ID: 200680)</li>
+                <li>Gaia Project (ID: 220308)</li>
+                <li>Legendary Encounters: Alien (ID: 146652)</li>
+                <li>Terraforming Mars (ID: 167791)</li>
+                <li>Twilight Imperium 4th Ed. (ID: 233078)</li>
+            </ul>
+    </div>
+
+    Created by:
+    <a href="https://www.brentonmallen.com">Brenton Mallen</a> ©2018
+    <hr>
+    <br>
+
+    <!--
+    JS function to check if the input field is an integer number, if not
+    it disables the submit command
+    -->
+    <script type="text/javascript">
+        function check_input(strValue){
+            var objRegExp  = /(^-?\d\d*$)/;
+
+            if(objRegExp.test(strValue)) {
+                document.getElementById('submit').disabled = false;
+                document.getElementById('submit').value = "Submit";
+            } else {
+                document.getElementById('submit').disabled = true;
+                document.getElementById('submit').value = "Invalid BGG ID";
+            }
+        }
+    </script>
+</body>
+</html>
