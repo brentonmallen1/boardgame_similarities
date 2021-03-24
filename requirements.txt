@@ -72,7 +72,7 @@ qtconsole==4.4.1
 redis==2.10.6
 requests>=2.20.0
 requests-cache==0.4.13
-rsa==3.4.2
+rsa==4.1
 s3transfer==0.1.13
 Send2Trash==1.5.0
 service-identity==17.0.0
